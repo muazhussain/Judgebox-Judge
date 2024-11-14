@@ -1,6 +1,7 @@
 from flask import Blueprint, request, jsonify
 from app.services.code_executor import CodeExecutor
 from app.exceptions.judge_exceptions import UnsupportedLanguageError
+from app.services.judge_service import get_problem, get_test_cases
 
 blueprint = Blueprint('api', __name__)
 
@@ -11,10 +12,11 @@ def judge():
     problem_id = data['problemId']
     language = data['language']
     source_code = data['sourceCode']
-
     # Get problem details and test cases from database
     problem = get_problem(problem_id)
+    problem = problem['data']
     test_cases = get_test_cases(problem_id)
+    test_cases = test_cases['data']
 
     try:
         executor = CodeExecutor(
