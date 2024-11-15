@@ -79,8 +79,7 @@ class CodeExecutor:
                 'extension': '.cpp',
                 'compile_cmd': 'g++ {filename} -o program',
                 'run_cmd': './program'
-            },
-            # Add more languages as needed
+            }
         }
 
         self.language_config = LANGUAGE_CONFIGS.get(self.language)
