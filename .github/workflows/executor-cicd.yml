@@ -2,9 +2,9 @@ name: Flask Judge Service CI/CD
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "prod" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "prod" ]
 
 env:
   APP_NAME: online-judge-executor
